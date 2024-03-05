@@ -1,10 +1,7 @@
 package repository.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.*;
 import lombok.*;
-import repository.entity.base.BaseEntity;
 
 import java.util.List;
 
@@ -12,9 +9,15 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @RequiredArgsConstructor
-@EqualsAndHashCode(callSuper = true)
+@EqualsAndHashCode
 @ToString
-public class User extends BaseEntity {
+public class UserEntity  {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "user_id")
+    private Integer userId;
+
     @Column(name = "name")
     @NonNull
     private String name;
@@ -28,5 +31,5 @@ public class User extends BaseEntity {
     private String address;
 
     @OneToMany (mappedBy = "user")
-    private List<Order> orders;
+    private List<OrderEntity> orderEntity;
 }

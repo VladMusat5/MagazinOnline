@@ -1,0 +1,29 @@
+<?xml version = "1.0" encoding = "utf-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+
+    <!--Session factory este echivalentul lui MySqlDataSource/DriverManager
+        Se ocupa cu partea de conexiune la configurarea serverului de db -->
+    <session-factory>
+        <!-- Credentialele bazei de date -->
+        <property name="connection.url">jdbc:mysql://localhost:3306/MagazinOnline</property>
+        <property name="connection.username">sdauserapp</property>
+        <property name="connection.password">sdauserapp</property>
+        <property name="connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+
+        <!-- Dialectul reprezinta tipologia bazei de date -> MySQL -->
+        <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
+
+        <!-- Printeaza in terminal toate comenzile SQL rulate -->
+        <property name="show_sql">false</property>
+
+        <!-- Formateaza comenzile SQL mai frumos in terminal -->
+        <property name="format_sql">true</property>
+
+        <!-- Ne permite sa setam o regula de creare/actualizare a bazei de date si a tebelelor -->
+        <property name="hbm2ddl.auto">create-drop</property>
+    </session-factory>
+    
+</hibernate-configuration>

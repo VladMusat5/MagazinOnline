@@ -2,7 +2,6 @@ package repository.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
-import repository.entity.base.BaseEntity;
 
 import java.util.List;
 
@@ -10,9 +9,16 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @RequiredArgsConstructor
-@EqualsAndHashCode(callSuper = true)
-@ToString // intraba daca punem exclude si ce am exclude
-public class Order extends BaseEntity {
+@EqualsAndHashCode
+@ToString
+
+public class OrderEntity {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "order_id")
+    private Integer orderId;
+
     @Column(name = "order_number")
     @NonNull
     private Integer orderNumber;
@@ -21,10 +27,9 @@ public class Order extends BaseEntity {
     @NonNull
     private Integer productId;
 
-    @ManyToOne
-    @JoinColumn (name = "id")
-    private User user;
+    @JoinColumn(name = "user")
+    private UserEntity user;
 
-    @OneToMany (mappedBy = "product")
-    private List<Product> products;
+    @OneToMany (mappedBy = "order")
+    private List<ProductEntity> productEntities;
 }
