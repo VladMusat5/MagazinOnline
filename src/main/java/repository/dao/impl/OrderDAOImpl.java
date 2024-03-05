@@ -1,10 +1,10 @@
-/*
 package repository.dao.impl;
 
     import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
-import repository.entity.Order;
+    import repository.dao.OrderDAO;
+    import repository.entity.OrderEntity;
 import java.util.List;
     public class OrderDAOImpl implements OrderDAO {
         private final SessionFactory sessionFactory;
@@ -12,15 +12,16 @@ import java.util.List;
             this.sessionFactory = sessionFactory;
         }
         @Override
-        public void save(Order order) {
+        public OrderEntity save(OrderEntity order) {
             try (Session session = sessionFactory.openSession()) {
                 Transaction transaction = session.beginTransaction();
                 session.save(order);
                 transaction.commit();
             }
+            return order;
         }
         @Override
-        public void delete(Order order) {
+        public void deleteById(OrderEntity order) {
             try (Session session = sessionFactory.openSession()) {
                 Transaction transaction = session.beginTransaction();
                 session.delete(order);
@@ -28,15 +29,15 @@ import java.util.List;
             }
         }
         @Override
-        public Order findById(Long id) {
+        public OrderEntity findById(Long id) {
             try (Session session = sessionFactory.openSession()) {
-                return session.get(Order.class, id);
+                return session.get(OrderEntity.class, id);
             }
         }
         @Override
-        public List<Order> findAll() {
+        public List<OrderEntity> findAll() {
             try (Session session = sessionFactory.openSession()) {
-                return session.createQuery("from Order", Order.class).list();
+                return session.createQuery("from Order", OrderEntity.class).list();
             }
         }
     }
@@ -50,5 +51,4 @@ import java.util.List;
 
 
 
-}
-*/
+

@@ -9,9 +9,9 @@ import java.util.Optional;
 public interface OrderDAO {
     OrderEntity save (OrderEntity order);
 
-    void deleteById (Integer id);
+    void deleteById(OrderEntity order);
 
-    Optional<OrderEntity> findById (Integer id);
+    OrderEntity findById(Long id);
 
     List<OrderEntity> findAll();
 }
