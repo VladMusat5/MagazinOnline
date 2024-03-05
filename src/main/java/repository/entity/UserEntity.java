@@ -7,10 +7,7 @@ import java.util.List;
 
 @Entity(name = "users")
 @Data
-@NoArgsConstructor
-@RequiredArgsConstructor
-@EqualsAndHashCode
-@ToString
+
 public class UserEntity  {
 
     @Id

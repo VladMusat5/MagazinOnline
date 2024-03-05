@@ -7,10 +7,7 @@ import java.util.List;
 
 @Entity(name = "orders")
 @Data
-@NoArgsConstructor
-@RequiredArgsConstructor
-@EqualsAndHashCode
-@ToString
+
 
 public class OrderEntity {
 
@@ -27,6 +24,7 @@ public class OrderEntity {
     @NonNull
     private Integer productId;
 
+    @ManyToOne
     @JoinColumn(name = "user")
     private UserEntity user;
 

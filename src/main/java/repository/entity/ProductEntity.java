@@ -5,9 +5,7 @@ import lombok.*;
 
 @Entity(name = "products")
 @Data
-@NoArgsConstructor
-@RequiredArgsConstructor
-@EqualsAndHashCode
+
 public class ProductEntity  {
 
     @Id
