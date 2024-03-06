@@ -31,8 +31,8 @@ public class UserEntity  {
     private List<OrderEntity> orderEntity;
 
     public UserEntity(String Name, String LastName, String Adress) {
-        this.address = Adress;
-        this.lastName = LastName;
         this.name = Name;
+        this.lastName = LastName;
+        this.address = Adress;
     }
 }
