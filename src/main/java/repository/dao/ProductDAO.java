@@ -6,11 +6,13 @@ import java.util.List;
 import java.util.Optional;
 
 public interface ProductDAO {
-    ProductEntity save (ProductEntity product);
 
-    void deleteById (Integer id);
+    void save(ProductEntity product);
 
-    Optional<ProductEntity> findById (Integer id);
+    void delete(ProductEntity product);
+
+    ProductEntity findById(Long id);
 
     List<ProductEntity> findAll();
 }
+

@@ -6,12 +6,15 @@ import java.util.List;
 import java.util.Optional;
 
 public interface UserDAO {
+    UserEntity save(UserEntity user);
 
-    UserEntity save (UserEntity user);
+    void update(UserEntity user);
 
-    void deleteById (Integer id);
+    void delete(UserEntity user);
 
-    Optional<UserEntity> findById (Integer id);
+    UserEntity findById(Long id);
 
     List<UserEntity> findAll();
 }
+
+

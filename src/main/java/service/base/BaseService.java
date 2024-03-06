@@ -14,4 +14,5 @@ public abstract class BaseService {
             .addAnnotatedClass(ProductEntity.class)
             .addAnnotatedClass(UserEntity.class)
             .buildSessionFactory();
+
 }

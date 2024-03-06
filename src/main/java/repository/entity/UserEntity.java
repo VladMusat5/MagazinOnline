@@ -29,4 +29,10 @@ public class UserEntity  {
 
     @OneToMany (mappedBy = "user")
     private List<OrderEntity> orderEntity;
+
+    public UserEntity(String Name, String LastName, String Adress) {
+        this.address = Adress;
+        this.lastName = LastName;
+        this.name = Name;
+    }
 }
