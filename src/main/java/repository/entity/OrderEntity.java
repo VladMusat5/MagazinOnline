@@ -20,9 +20,7 @@ public class OrderEntity {
     @NonNull
     private Integer orderNumber;
 
-    @Column(name = "product_id")
-    @NonNull
-    private Integer productId;
+
 
     @ManyToOne
     @JoinColumn(name = "user")

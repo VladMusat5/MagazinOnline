@@ -1,12 +1,11 @@
 package repository.dao;
 
 import repository.entity.OrderEntity;
-import repository.entity.ProductEntity;
 
 import java.util.List;
-import java.util.Optional;
 
-public interface OrderDAO {
+public interface OrderDataAccessObject {
+    //Clasele care reprezinta "comunicarea" dintre aplicatia noastra si baza de date
     OrderEntity save (OrderEntity order);
 
     void deleteById(OrderEntity order);

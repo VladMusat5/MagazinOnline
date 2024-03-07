@@ -3,10 +3,10 @@ package repository.dao.impl;
     import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
-    import repository.dao.OrderDAO;
+    import repository.dao.OrderDataAccessObject;
     import repository.entity.OrderEntity;
 import java.util.List;
-    public class OrderDAOImpl implements OrderDAO {
+    public class OrderDAOImpl implements OrderDataAccessObject {
         private final SessionFactory sessionFactory;
         public OrderDAOImpl(SessionFactory sessionFactory) {
             this.sessionFactory = sessionFactory;

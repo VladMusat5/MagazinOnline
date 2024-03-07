@@ -2,13 +2,16 @@ package org.example;
 
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
+import repository.dao.ProductDAO;
+import repository.dao.impl.OrderDAOImpl;
+import repository.dao.impl.ProductDAOImpl;
 import repository.dao.impl.UserDAOImpl;
 import repository.entity.OrderEntity;
 import repository.entity.ProductEntity;
 import repository.entity.UserEntity;
-import service.base.BaseService;
-import service.impl.*;
 
+
+import java.util.Objects;
 import java.util.Scanner;
 
 public class Main {
@@ -29,8 +32,11 @@ public class Main {
 //        System.out.println("2. ");
 //        System.out.println("3. ");
 
-    UserDAOImpl user1 = new UserDAOImpl(sessionFactory);
-    System.out.println("Enter user name");
+        UserDAOImpl userDataAccessObject = new UserDAOImpl(sessionFactory);
+        ProductDAOImpl productDataAccessObject = new ProductDAOImpl(sessionFactory);
+        OrderDAOImpl orderDataAccessObject = new OrderDAOImpl(sessionFactory);
+
+        System.out.println("Enter user name");
         String userName = scanner.nextLine();
 
         System.out.println("Enter user lastname");
@@ -38,9 +44,21 @@ public class Main {
 
         System.out.println("Enter user address");
         String userAddress = scanner.nextLine();
-    user1.save(new UserEntity(" " + userName," " + userLastName," " + userAddress));
+        userDataAccessObject.save(new UserEntity(userName, userLastName, userAddress));
 
 
+        String product = scanner.nextLine();
+        productDataAccessObject.save(new ProductEntity(product));
 
+        OrderEntity orderEntity = new OrderEntity();
+        orderEntity.getProductEntities().add();
+
+        //salvam in baza de date product1
+        //Creem order
+        //Pe orderul respectiv adaugam produsul 1 in lista de produse
+        // OrderEntity order1 = new OrderEntity();
+        // adaugam valori pe celalte fielduri cu scanner de la tastatura
+        //order1.getProductEntities().add(product1);
+        //salvam in DB order1
     }
 }

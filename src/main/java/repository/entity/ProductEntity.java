@@ -17,9 +17,7 @@ public class ProductEntity  {
     @NonNull
     private String productName;
 
-
-
     @ManyToOne
-    @JoinColumn(name = "id")
+    @JoinColumn(name = "order_id")
     private OrderEntity order;
 }
