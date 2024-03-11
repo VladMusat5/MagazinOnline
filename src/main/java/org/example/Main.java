@@ -20,6 +20,19 @@ public class Main {
 
         Scanner scanner = new Scanner(System.in);
 
+        boolean continue1 = true;
+
+        while (continue1){
+            System.out.println("fasdfsad");
+
+            String userResponse = scanner.nextLine();
+            if (userResponse.equalsIgnoreCase("no")){
+                continue1 = false;
+            }
+
+        }
+
+        System.out.println("Stop");
         SessionFactory sessionFactory = new Configuration()
                 .configure()
                 .addAnnotatedClass(OrderEntity.class)
@@ -27,11 +40,6 @@ public class Main {
                 .addAnnotatedClass(UserEntity.class)
                 .buildSessionFactory();
 
-//
-//        System.out.println("What action do you want to take:");
-//        System.out.println("1. ");
-//        System.out.println("2. ");
-//        System.out.println("3. ");
 
         UserDAOImpl userDataAccessObject = new UserDAOImpl(sessionFactory);
         ProductDAOImpl productDataAccessObject = new ProductDAOImpl(sessionFactory);
