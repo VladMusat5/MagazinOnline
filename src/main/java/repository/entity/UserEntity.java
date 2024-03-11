@@ -3,6 +3,7 @@ package repository.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity(name = "users")
@@ -11,7 +12,7 @@ import java.util.List;
 public class UserEntity  {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "user_id")
     private Integer userId;
 
@@ -28,7 +29,7 @@ public class UserEntity  {
     private String address;
 
     @OneToMany (mappedBy = "user")
-    private List<OrderEntity> orderEntity;
+    private List<OrderEntity> orderEntity = new ArrayList<>();
 
     public UserEntity(String Name, String LastName, String Adress) {
         this.name = Name;

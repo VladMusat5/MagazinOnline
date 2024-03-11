@@ -1,12 +1,15 @@
 package repository.dao.impl;
 
+import jakarta.persistence.EntityTransaction;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import repository.dao.UserDAO;
+import repository.entity.ProductEntity;
 import repository.entity.UserEntity;
 
 import java.util.List;
+import java.util.Optional;
 
 public class UserDAOImpl implements UserDAO {
     private final SessionFactory sessionFactory;
@@ -45,10 +48,19 @@ public class UserDAOImpl implements UserDAO {
 
     @Override
     public UserEntity findById(Long id) {
-        try (Session session = sessionFactory.openSession()) {
-            return session.get(UserEntity.class, id);
-        }
+        return null;
     }
+
+// cel de jos este pe jumatate terminat
+//    @Override
+//    public UserEntity findById(Integer id) {
+//        EntityTransaction transaction = null;
+//        Optional<ProductEntity> found = Optional.empty();
+//        try  {
+//            transaction = entityManager
+//
+//        }
+//    }
 
     @Override
     public List<UserEntity> findAll() {

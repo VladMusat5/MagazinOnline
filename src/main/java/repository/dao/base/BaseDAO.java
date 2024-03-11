@@ -2,7 +2,7 @@ package repository.dao.base;
 
 import jakarta.persistence.EntityManager;
 
-public class BaseDAO {
+public abstract class BaseDAO {
     protected final EntityManager entityManager;
 
 
