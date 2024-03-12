@@ -21,17 +21,55 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
 
         boolean continue1 = true;
+        boolean continue2 = true;
+        String userName = null;
+        String userLastName = null;
+        String userAddress = null;
+        String verificare;
+        String verificare2 = null;
+        String product = null;
 
-        while (continue1){
-            System.out.println("fasdfsad");
+        System.out.println("If you want to register an user type yes");
+        verificare = scanner.nextLine();
 
-            String userResponse = scanner.nextLine();
-            if (userResponse.equalsIgnoreCase("no")){
-                continue1 = false;
+        if (verificare.equalsIgnoreCase("yes")) {
+            while (continue1) {
+
+                System.out.println("Enter user name.");
+                userName = scanner.nextLine();
+                System.out.println("Enter user lastname.");
+                userLastName = scanner.nextLine();
+                System.out.println("Enter user address.");
+                userAddress = scanner.nextLine();
+
+                String userResponse = scanner.nextLine();
+                System.out.println(userResponse.length());
+                System.out.println("If you want to stop adding users type no");
+                if (userResponse.equalsIgnoreCase("no")) {
+                    continue1 = false;
+                }
+
             }
-
+            System.out.println("Stoped adding users");
         }
 
+        System.out.println("If you want to add a product type yes");
+        verificare2 = scanner.nextLine();
+
+        if (verificare2.equalsIgnoreCase("yes")) {
+            while (continue2) {
+
+                System.out.println("Enter product name");
+                product = scanner.nextLine();
+
+                System.out.println("If you want to stop adding products type no");
+                String userResponse = scanner.nextLine();
+
+                if (userResponse.equalsIgnoreCase("no")) {
+                    continue2 = false;
+                }
+            }
+        }
         System.out.println("Stop");
         SessionFactory sessionFactory = new Configuration()
                 .configure()
@@ -40,34 +78,15 @@ public class Main {
                 .addAnnotatedClass(UserEntity.class)
                 .buildSessionFactory();
 
-
         UserDAOImpl userDataAccessObject = new UserDAOImpl(sessionFactory);
         ProductDAOImpl productDataAccessObject = new ProductDAOImpl(sessionFactory);
         OrderDAOImpl orderDataAccessObject = new OrderDAOImpl(sessionFactory);
 
+        ProductEntity product1 = new ProductEntity(product);
 
-        System.out.println("Enter user name");
-        String userName = scanner.nextLine();
-       System.out.println("Enter user lastname");
-       String userLastName = scanner.nextLine();
-       System.out.println("Enter user address");
-       String userAddress = scanner.nextLine();
-//        UserEntity user1 = new UserEntity(userName, userLastName, userAddress);
-//        userDataAccessObject.save(user1);
-//
-//
-       System.out.println("Enter product name");
-       String product = scanner.nextLine();
-       ProductEntity product1 = new ProductEntity(product);
-//
-//        OrderEntity orderEntity = new OrderEntity(1);
-//        orderEntity.setUser(user1);
-//        orderDataAccessObject.save(orderEntity);
-//        product1.setOrder(orderEntity);
-//        productDataAccessObject.save(product1);
 
         // se creaza user/product/order entity de la tastatura
-        UserEntity userFromKeyboard = new UserEntity(userName,userLastName,userAddress);
+        UserEntity userFromKeyboard = new UserEntity(userName, userLastName, userAddress);
         ProductEntity productFromKeyboard = new ProductEntity(product);
         OrderEntity orderFromKeyboard = new OrderEntity(1);
 
