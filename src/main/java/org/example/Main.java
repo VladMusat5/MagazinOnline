@@ -42,9 +42,8 @@ public class Main {
                 System.out.println("Enter user address.");
                 userAddress = scanner.nextLine();
 
-                String userResponse = scanner.nextLine();
-                System.out.println(userResponse.length());
                 System.out.println("If you want to stop adding users type no");
+                String userResponse = scanner.nextLine();
                 if (userResponse.equalsIgnoreCase("no")) {
                     continue1 = false;
                 }
@@ -82,7 +81,7 @@ public class Main {
         ProductDAOImpl productDataAccessObject = new ProductDAOImpl(sessionFactory);
         OrderDAOImpl orderDataAccessObject = new OrderDAOImpl(sessionFactory);
 
-        ProductEntity product1 = new ProductEntity(product);
+//        ProductEntity product1 = new ProductEntity(product);
 
 
         // se creaza user/product/order entity de la tastatura
